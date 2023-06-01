@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Traductor básico con servicios de Azure</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #333333;
+            color: #ffffff;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 20px auto;
+            background-color: #222222;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        input[type="text"], select {
+            width: 100%;
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid #cccccc;
+            background-color: #333333;
+            color: #ffffff;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #4caf50;
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .translation-result {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #222222;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .translation-result p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Traductor básico con servicios de Azure</h1>
+    <form method="POST">
+        <label for="text">Texto:</label>
+        <input type="text" name="text" id="text" placeholder="Introduce el texto aquí" required>
+        
+        <label for="language">Idioma:</label>
+        <select name="language" id="language">
+            <option value="en">Inglés</option>
+            <option value="fr">Francés</option>
+            <option value="de">Alemán</option>
+            <!-- Añade aquí más opciones de idioma según tus necesidades -->
+        </select>
+        
+        <input type="submit" value="Traducir">
+    </form>
+
+    {% if translated_text %}
+    <div class="translation-result">
+        <h2>Texto traducido:</h2>
+        <p>{{ translated_text }}</p>
+    </div>
+    {% endif %}
+</body>
+</html>
